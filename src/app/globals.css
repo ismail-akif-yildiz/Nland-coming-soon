@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+/* Tam yükseklik */
+html,
+body {
+  height: 100%;
+}
+
+/* Tema değişkenleri */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Karanlık mod için */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* ————————————————————————————————
+   ÖLÇEK KURALI:
+   1280px genişliği referans al.
+   Geniş ekranda 16px'ten BÜYÜMESİN,
+   daralınca 14px'e kadar NAZİKÇE KÜÇÜLSÜN.
+   İstersen 1280'i kendi referans genişliğinle değiştir.
+   ———————————————————————————————— */
+html {
+  font-size: clamp(14px, calc(16px * (100vw / 1280)), 16px);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Genel gövde */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
